@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project net.kenevans.hxmviewer with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Deploy/HxM Viewer/hxmViewer.jar">
+            <manifest>
+                <attribute name="Main-Class" value="net.kenevans.heartmonitorsessionviewer.ui.HMSViewer"/>
+                <attribute name="Class-Path" value=". hxmViewer_lib/org.eclipse.ui_3.106.1.v20141002-1150.jar hxmViewer_lib/org.eclipse.swt_3.103.2.v20150203-1313.jar hxmViewer_lib/org.eclipse.swt.win32.win32.x86_3.103.2.v20150203-1351.jar hxmViewer_lib/org.eclipse.jface_3.10.2.v20141021-1035.jar hxmViewer_lib/org.eclipse.core.commands_3.6.100.v20140528-1422.jar hxmViewer_lib/org.eclipse.ui.workbench_3.106.2.v20150204-1030.jar hxmViewer_lib/org.eclipse.e4.ui.workbench3_0.12.0.v20140227-2118.jar hxmViewer_lib/org.eclipse.core.runtime_3.10.0.v20140318-2214.jar hxmViewer_lib/javax.annotation_1.2.0.v201401042248.jar hxmViewer_lib/javax.inject_1.0.0.v20091030.jar hxmViewer_lib/org.eclipse.osgi_3.10.2.v20150203-1939.jar hxmViewer_lib/org.eclipse.osgi.compatibility.state_1.0.1.v20140709-1414.jar hxmViewer_lib/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar hxmViewer_lib/org.eclipse.core.jobs_3.6.1.v20141014-1248.jar hxmViewer_lib/runtime_registry_compatibility.jar hxmViewer_lib/org.eclipse.equinox.registry_3.5.400.v20140428-1507.jar hxmViewer_lib/org.eclipse.equinox.preferences_3.5.200.v20140224-1527.jar hxmViewer_lib/org.eclipse.core.contenttype_3.4.200.v20140207-1251.jar hxmViewer_lib/org.eclipse.equinox.app_1.3.200.v20130910-1609.jar hxmViewer_lib/org.eclipse.core.resources_3.9.1.v20140825-1431.jar hxmViewer_lib/org.eclipse.core.filesystem_1.4.100.v20140514-1614.jar hxmViewer_lib/org.eclipse.ui.ide_3.10.2.v20141118-1227.jar hxmViewer_lib/org.eclipse.ui.views_3.7.0.v20140408-0703.jar hxmViewer_lib/activation.jar hxmViewer_lib/jaxb1-impl.jar hxmViewer_lib/jaxb-api.jar hxmViewer_lib/jsr173_1.0_api.jar hxmViewer_lib/jaxb-impl.jar hxmViewer_lib/jaxb-xjc.jar hxmViewer_lib/jaxb1-impl-src.zip hxmViewer_lib/jaxb-api-doc.zip hxmViewer_lib/jaxb-api-src.zip hxmViewer_lib/jaxb-impl.src.zip hxmViewer_lib/jaxb-xjc.src.zip hxmViewer_lib/jcommon-1.0.16.jar hxmViewer_lib/jfreechart-1.0.13.jar"/>
+            </manifest>
+            <fileset dir="C:/eclipseWorkspaces/Work/net.kenevans.hxmviewer/bin"/>
+            <fileset dir="C:/eclipseWorkspaces/Work/net.kenevans.core.utils/bin"/>
+            <fileset dir="C:/eclipseWorkspaces/Work/net.kenevans.gpx/bin"/>
+        </jar>
+        <delete dir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <mkdir dir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui_3.106.1.v20141002-1150.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.swt_3.103.2.v20150203-1313.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.103.2.v20150203-1351.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.jface_3.10.2.v20141021-1035.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.commands_3.6.100.v20140528-1422.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui.workbench_3.106.2.v20150204-1030.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.e4.ui.workbench3_0.12.0.v20140227-2118.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.runtime_3.10.0.v20140318-2214.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/javax.annotation_1.2.0.v201401042248.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/javax.inject_1.0.0.v20091030.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.osgi_3.10.2.v20150203-1939.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.osgi.compatibility.state_1.0.1.v20140709-1414.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.jobs_3.6.1.v20141014-1248.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.300.v20140128-0851/runtime_registry_compatibility.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.registry_3.5.400.v20140428-1507.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.preferences_3.5.200.v20140224-1527.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.contenttype_3.4.200.v20140207-1251.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.app_1.3.200.v20130910-1609.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.resources_3.9.1.v20140825-1431.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.filesystem_1.4.100.v20140514-1614.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui.ide_3.10.2.v20141118-1227.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui.views_3.7.0.v20140408-0703.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/activation.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb1-impl.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-api.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jsr173_1.0_api.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-impl.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-xjc.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb1-impl-src.zip" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-api-doc.zip" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-api-src.zip" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-impl.src.zip" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.jaxb/jaxb-xjc.src.zip" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.hxmviewer/jcommon-1.0.16.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+        <copy file="C:/eclipseWorkspaces/Work/net.kenevans.hxmviewer/jfreechart-1.0.13.jar" todir="C:/Deploy/HxM Viewer/hxmViewer_lib"/>
+    </target>
+</project>
