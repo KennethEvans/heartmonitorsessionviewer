@@ -328,7 +328,6 @@ public class HMSVFileModel implements IConstants
             double[] rrVals1 = new double[rrValsList.size()];
             ListIterator<Double> li = rrValsList.listIterator();
             int i = 0;
-            double dVal;
             while(li.hasNext()) {
                 rrVals1[i++] = li.next().doubleValue();
             }
