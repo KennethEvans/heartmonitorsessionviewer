@@ -315,6 +315,18 @@ public class HMSVFileModel implements IConstants
                 }
             }
         }
+        if(nRrValues != 0) {
+            HRVInfo hrvInfo = HRVInfo.getHrvInfo(rrVals);
+            if(hrvInfo != null) {
+                info += String
+                    .format(
+                        "RMSSD=%.2f LnRMMSSD=%.2f SDNN=%.2f NN50=%d PNN50=%.2f HRV=%.0f",
+                        hrvInfo.getRmssd(), hrvInfo.getLnRmssd(),
+                        hrvInfo.getSdnn(), hrvInfo.getNn50(),
+                        100 * hrvInfo.getPnn50(), hrvInfo.getHrv())
+                    + LS;
+            }
+        }
         return info;
     }
 
