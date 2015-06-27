@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 import net.kenevans.core.utils.Utils;
 import net.kenevans.heartmonitorsessionviewer.utils.Log;
@@ -315,8 +316,23 @@ public class HMSVFileModel implements IConstants
                 }
             }
         }
+        // HRV Info
         if(nRrValues != 0) {
-            HRVInfo hrvInfo = HRVInfo.getHrvInfo(rrVals);
+            // Need to remove Double.NaN from rrVals
+            ArrayList<Double> rrValsList = new ArrayList<Double>();
+            for(double val : rrVals) {
+                if(!Double.isNaN(val)) {
+                    rrValsList.add(val);
+                }
+            }
+            double[] rrVals1 = new double[rrValsList.size()];
+            ListIterator<Double> li = rrValsList.listIterator();
+            int i = 0;
+            double dVal;
+            while(li.hasNext()) {
+                rrVals1[i++] = li.next().doubleValue();
+            }
+            HRVInfo hrvInfo = HRVInfo.getHrvInfo(rrVals1);
             if(hrvInfo != null) {
                 info += String
                     .format(
