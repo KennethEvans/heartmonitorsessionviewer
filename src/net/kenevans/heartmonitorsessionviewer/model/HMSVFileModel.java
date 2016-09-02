@@ -209,7 +209,7 @@ public class HMSVFileModel implements IConstants
             nRrValues++;
             lastRrTime += val;
             times[i] = lastRrTime;
-            values[i] = 1.024 * val;
+            values[i] = val / 1.024;
         }
         // Make all times be >= mLastRrUpdateTime
         long deltaTime;
