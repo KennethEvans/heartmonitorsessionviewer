@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project net.kenevans.heartmonitorsessionviewer with libraries in sub-folder">
+<project default="create_run_jar" name="Create Runnable Jar for Project net.kenevans.stlviewer with libraries in sub-folder">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.workspace" value="${dir.buildfile}/.."/>
-    <property name="dir.jarfile" value="C:/Deploy/Heart Monitor Session Viewer"/>
+    <property name="dir.jarfile" value="C:/Deploy/STL Viewer"/>
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/HeartMonitorSessionViewer.jar">
+        <jar destfile="${dir.jarfile}/stlViewer.jar">
             <manifest>
-                <attribute name="Main-Class" value="net.kenevans.heartmonitorsessionviewer.ui.HMSViewer"/>
-                <attribute name="Class-Path" value=". HeartMonitorSessionViewer_lib/org.eclipse.ui_3.108.0.v20160518-1929.jar HeartMonitorSessionViewer_lib/org.eclipse.swt_3.105.0.v20160603-0902.jar HeartMonitorSessionViewer_lib/org.eclipse.swt.win32.win32.x86_3.105.0.v20160603-0902.jar HeartMonitorSessionViewer_lib/org.eclipse.jface_3.12.0.v20160518-1929.jar HeartMonitorSessionViewer_lib/org.eclipse.core.commands_3.8.0.v20160316-1921.jar HeartMonitorSessionViewer_lib/org.eclipse.ui.workbench_3.108.0.v20160602-1232.jar HeartMonitorSessionViewer_lib/org.eclipse.e4.ui.workbench3_0.13.100.v20160506-0759.jar HeartMonitorSessionViewer_lib/org.eclipse.core.runtime_3.12.0.v20160606-1342.jar HeartMonitorSessionViewer_lib/javax.inject_1.0.0.v20091030.jar HeartMonitorSessionViewer_lib/org.eclipse.osgi_3.11.0.v20160603-1336.jar HeartMonitorSessionViewer_lib/org.eclipse.osgi.compatibility.state_1.0.200.v20160504-1419.jar HeartMonitorSessionViewer_lib/org.eclipse.wst.jsdt.nashorn.extension_1.0.0.v201605131737.jar HeartMonitorSessionViewer_lib/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar HeartMonitorSessionViewer_lib/org.eclipse.core.jobs_3.8.0.v20160509-0411.jar HeartMonitorSessionViewer_lib/org.eclipse.equinox.registry_3.6.100.v20160223-2218.jar HeartMonitorSessionViewer_lib/org.eclipse.equinox.preferences_3.6.0.v20160120-1756.jar HeartMonitorSessionViewer_lib/org.eclipse.core.contenttype_3.5.100.v20160418-1621.jar HeartMonitorSessionViewer_lib/org.eclipse.equinox.app_1.3.400.v20150715-1528.jar HeartMonitorSessionViewer_lib/org.eclipse.core.resources_3.11.0.v20160503-1608.jar HeartMonitorSessionViewer_lib/org.eclipse.core.filesystem_1.6.0.v20160503-1608.jar HeartMonitorSessionViewer_lib/org.eclipse.ui.ide_3.12.0.v20160601-1609.jar HeartMonitorSessionViewer_lib/org.eclipse.ui.views_3.8.100.v20160518-1929.jar HeartMonitorSessionViewer_lib/activation.jar HeartMonitorSessionViewer_lib/jaxb1-impl.jar HeartMonitorSessionViewer_lib/jaxb-api.jar HeartMonitorSessionViewer_lib/jsr173_1.0_api.jar HeartMonitorSessionViewer_lib/jaxb-impl.jar HeartMonitorSessionViewer_lib/jaxb-xjc.jar HeartMonitorSessionViewer_lib/jaxb1-impl-src.zip HeartMonitorSessionViewer_lib/jaxb-api-doc.zip HeartMonitorSessionViewer_lib/jaxb-api-src.zip HeartMonitorSessionViewer_lib/jaxb-impl.src.zip HeartMonitorSessionViewer_lib/jaxb-xjc.src.zip HeartMonitorSessionViewer_lib/jcommon-1.0.16.jar HeartMonitorSessionViewer_lib/jfreechart-1.0.13.jar"/>
+                <attribute name="Main-Class" value="net.kenevans.stlviewer.ui.STLViewer"/>
+                <attribute name="Class-Path" value=". stlViewer_lib/org.eclipse.ui_3.108.0.v20160518-1929.jar stlViewer_lib/org.eclipse.swt_3.105.0.v20160603-0902.jar stlViewer_lib/org.eclipse.swt.win32.win32.x86_3.105.0.v20160603-0902.jar stlViewer_lib/org.eclipse.jface_3.12.0.v20160518-1929.jar stlViewer_lib/org.eclipse.core.commands_3.8.0.v20160316-1921.jar stlViewer_lib/org.eclipse.ui.workbench_3.108.0.v20160602-1232.jar stlViewer_lib/org.eclipse.e4.ui.workbench3_0.13.100.v20160506-0759.jar stlViewer_lib/org.eclipse.core.runtime_3.12.0.v20160606-1342.jar stlViewer_lib/javax.inject_1.0.0.v20091030.jar stlViewer_lib/org.eclipse.osgi_3.11.0.v20160603-1336.jar stlViewer_lib/org.eclipse.osgi.compatibility.state_1.0.200.v20160504-1419.jar stlViewer_lib/org.eclipse.wst.jsdt.nashorn.extension_1.0.0.v201605131737.jar stlViewer_lib/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar stlViewer_lib/org.eclipse.core.jobs_3.8.0.v20160509-0411.jar stlViewer_lib/org.eclipse.equinox.registry_3.6.100.v20160223-2218.jar stlViewer_lib/org.eclipse.equinox.preferences_3.6.0.v20160120-1756.jar stlViewer_lib/org.eclipse.core.contenttype_3.5.100.v20160418-1621.jar stlViewer_lib/org.eclipse.equinox.app_1.3.400.v20150715-1528.jar stlViewer_lib/org.eclipse.core.resources_3.11.0.v20160503-1608.jar stlViewer_lib/org.eclipse.core.filesystem_1.6.0.v20160503-1608.jar stlViewer_lib/org.eclipse.ui.ide_3.12.0.v20160601-1609.jar stlViewer_lib/org.eclipse.ui.views_3.8.100.v20160518-1929.jar stlViewer_lib/activation.jar stlViewer_lib/jaxb1-impl.jar stlViewer_lib/jaxb-api.jar stlViewer_lib/jsr173_1.0_api.jar stlViewer_lib/jaxb-impl.jar stlViewer_lib/jaxb-xjc.jar stlViewer_lib/jaxb1-impl-src.zip stlViewer_lib/jaxb-api-doc.zip stlViewer_lib/jaxb-api-src.zip stlViewer_lib/jaxb-impl.src.zip stlViewer_lib/jaxb-xjc.src.zip stlViewer_lib/jcommon-1.0.16.jar stlViewer_lib/jfreechart-1.0.13.jar stlViewer_lib/sqlite-jdbc-3.8.7.jar"/>
             </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
+            <fileset dir="${dir.workspace}/net.kenevans.stlviewer/bin"/>
             <fileset dir="${dir.workspace}/net.kenevans.core.utils/bin"/>
             <fileset dir="${dir.workspace}/net.kenevans.gpx/bin"/>
         </jar>
-        <delete dir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <mkdir dir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.ui_3.108.0.v20160518-1929.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.swt_3.105.0.v20160603-0902.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.105.0.v20160603-0902.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.jface_3.12.0.v20160518-1929.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.core.commands_3.8.0.v20160316-1921.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.ui.workbench_3.108.0.v20160602-1232.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.e4.ui.workbench3_0.13.100.v20160506-0759.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.core.runtime_3.12.0.v20160606-1342.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/javax.inject_1.0.0.v20091030.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.osgi_3.11.0.v20160603-1336.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.osgi.compatibility.state_1.0.200.v20160504-1419.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.wst.jsdt.nashorn.extension_1.0.0.v201605131737.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.core.jobs_3.8.0.v20160509-0411.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.equinox.registry_3.6.100.v20160223-2218.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.equinox.preferences_3.6.0.v20160120-1756.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.core.contenttype_3.5.100.v20160418-1621.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.equinox.app_1.3.400.v20150715-1528.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.core.resources_3.11.0.v20160503-1608.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.core.filesystem_1.6.0.v20160503-1608.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.ui.ide_3.12.0.v20160601-1609.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="C:/eclipse/plugins/org.eclipse.ui.views_3.8.100.v20160518-1929.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/activation.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb1-impl.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jsr173_1.0_api.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb1-impl-src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-doc.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.buildfile}/jcommon-1.0.16.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.buildfile}/jfreechart-1.0.13.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
+        <delete dir="${dir.jarfile}/stlViewer_lib"/>
+        <mkdir dir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui_3.108.0.v20160518-1929.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.swt_3.105.0.v20160603-0902.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.105.0.v20160603-0902.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.jface_3.12.0.v20160518-1929.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.commands_3.8.0.v20160316-1921.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui.workbench_3.108.0.v20160602-1232.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.e4.ui.workbench3_0.13.100.v20160506-0759.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.runtime_3.12.0.v20160606-1342.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/javax.inject_1.0.0.v20091030.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.osgi_3.11.0.v20160603-1336.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.osgi.compatibility.state_1.0.200.v20160504-1419.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.wst.jsdt.nashorn.extension_1.0.0.v201605131737.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.jobs_3.8.0.v20160509-0411.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.registry_3.6.100.v20160223-2218.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.preferences_3.6.0.v20160120-1756.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.contenttype_3.5.100.v20160418-1621.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.equinox.app_1.3.400.v20150715-1528.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.resources_3.11.0.v20160503-1608.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.core.filesystem_1.6.0.v20160503-1608.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui.ide_3.12.0.v20160601-1609.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="C:/eclipse/plugins/org.eclipse.ui.views_3.8.100.v20160518-1929.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/activation.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb1-impl.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jsr173_1.0_api.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb1-impl-src.zip" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-doc.zip" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-src.zip" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.src.zip" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.src.zip" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.stlviewer/jcommon-1.0.16.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.stlviewer/jfreechart-1.0.13.jar" todir="${dir.jarfile}/stlViewer_lib"/>
+        <copy file="${dir.workspace}/net.kenevans.stlviewer/sqlite-jdbc-3.8.7.jar" todir="${dir.jarfile}/stlViewer_lib"/>
     </target>
 </project>
