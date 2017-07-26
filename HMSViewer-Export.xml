@@ -10,7 +10,7 @@
         <jar destfile="${dir.jarfile}/HeartMonitorSessionViewer.jar">
             <manifest>
                 <attribute name="Main-Class" value="net.kenevans.heartmonitorsessionviewer.ui.HMSViewer"/>
-                <attribute name="Class-Path" value=". HeartMonitorSessionViewer_lib/activation.jar HeartMonitorSessionViewer_lib/jaxb1-impl.jar HeartMonitorSessionViewer_lib/jaxb-api.jar HeartMonitorSessionViewer_lib/jsr173_1.0_api.jar HeartMonitorSessionViewer_lib/jaxb-impl.jar HeartMonitorSessionViewer_lib/jaxb-xjc.jar HeartMonitorSessionViewer_lib/jaxb1-impl-src.zip HeartMonitorSessionViewer_lib/jaxb-api-doc.zip HeartMonitorSessionViewer_lib/jaxb-api-src.zip HeartMonitorSessionViewer_lib/jaxb-impl.src.zip HeartMonitorSessionViewer_lib/jaxb-xjc.src.zip HeartMonitorSessionViewer_lib/iText-2.1.5.jar HeartMonitorSessionViewer_lib/hamcrest-core-1.3.jar HeartMonitorSessionViewer_lib/jcommon-1.0.23.jar HeartMonitorSessionViewer_lib/jfreechart-1.0.19-experimental.jar HeartMonitorSessionViewer_lib/jfreechart-1.0.19-swt.jar HeartMonitorSessionViewer_lib/jfreechart-1.0.19.jar HeartMonitorSessionViewer_lib/jfreesvg-2.0.jar HeartMonitorSessionViewer_lib/junit-4.11.jar HeartMonitorSessionViewer_lib/orsoncharts-1.4-eval-nofx.jar HeartMonitorSessionViewer_lib/orsonpdf-1.6-eval.jar HeartMonitorSessionViewer_lib/servlet.jar HeartMonitorSessionViewer_lib/swtgraphics2d.jar"/>
+                <attribute name="Class-Path" value=". HeartMonitorSessionViewer_lib/activation.jar HeartMonitorSessionViewer_lib/jaxb1-impl.jar HeartMonitorSessionViewer_lib/jaxb-api.jar HeartMonitorSessionViewer_lib/jsr173_1.0_api.jar HeartMonitorSessionViewer_lib/jaxb-impl.jar HeartMonitorSessionViewer_lib/jaxb-xjc.jar HeartMonitorSessionViewer_lib/jaxb1-impl-src.zip HeartMonitorSessionViewer_lib/jaxb-api-doc.zip HeartMonitorSessionViewer_lib/jaxb-api-src.zip HeartMonitorSessionViewer_lib/jaxb-impl.src.zip HeartMonitorSessionViewer_lib/jaxb-xjc.src.zip HeartMonitorSessionViewer_lib/jcommon-1.0.16.jar HeartMonitorSessionViewer_lib/jfreechart-1.0.13.jar"/>
             </manifest>
             <fileset dir="${dir.buildfile}/bin"/>
             <fileset dir="${dir.workspace}/net.kenevans.core.utils/bin"/>
@@ -29,17 +29,7 @@
         <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
         <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
         <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/iText-2.1.5.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/hamcrest-core-1.3.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/jcommon-1.0.23.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/jfreechart-1.0.19-experimental.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/jfreechart-1.0.19-swt.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/jfreechart-1.0.19.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/jfreesvg-2.0.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/junit-4.11.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/orsoncharts-1.4-eval-nofx.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/orsonpdf-1.6-eval.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/servlet.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jfreechart/swtgraphics2d.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
+        <copy file="${dir.buildfile}/jcommon-1.0.16.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
+        <copy file="${dir.buildfile}/jfreechart-1.0.13.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
     </target>
 </project>
