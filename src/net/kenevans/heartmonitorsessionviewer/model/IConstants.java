@@ -68,11 +68,11 @@ public interface IConstants
     /*** The preference name for the default directory for finding session files. */
     public static final String P_DEFAULT_DIR = "defaultDir";
     /*** The default value for the default directory for finding session files. */
-    public static final String D_DEFAULT_DIR = "C:/Scratch/ECG/Android/SCH-I545/Current/HxM Monitor";
+    public static final String D_DEFAULT_DIR = "C:/Scratch/ECG/Android/SM-G930V/Current/BLE Cardiac Monitor";
     /*** The preference name for the default directory 2 for finding session files. */
     public static final String P_DEFAULT_DIR2 = "defaultDir2";
     /*** The default value for the default directory 2 for finding session files. */
-    public static final String D_DEFAULT_DIR2 = "C:/Scratch/ECG/Android/SCH-I545/Current/BLE Cardiac Monitor";
+    public static final String D_DEFAULT_DIR2 = "C:/Scratch/ECG/Android/SM-G930V/Current/HxM Monitor";
 
     /** The number of data types. */
     public static int N_DATA_TYPES = 1;
