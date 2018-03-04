@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project net.kenevans.heartmonitorsessionviewer with libraries in sub-folder">
+<project default="create_run_jar" name="Create Runnable Jar for Project Java Miscellaneous">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.workspace" value="${dir.buildfile}/.."/>
-    <property name="dir.jarfile" value="C:/Deploy/Heart Monitor Session Viewer"/>
+    <property name="dir.jarfile" value="C:/Deploy/Socket Client"/>
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/HeartMonitorSessionViewer.jar">
+        <jar destfile="${dir.jarfile}/SocketClient.jar" filesetmanifest="mergewithoutmain">
             <manifest>
-                <attribute name="Main-Class" value="net.kenevans.heartmonitorsessionviewer.ui.HMSViewer"/>
-                <attribute name="Class-Path" value=". HeartMonitorSessionViewer_lib/activation.jar HeartMonitorSessionViewer_lib/jaxb1-impl.jar HeartMonitorSessionViewer_lib/jaxb-api.jar HeartMonitorSessionViewer_lib/jsr173_1.0_api.jar HeartMonitorSessionViewer_lib/jaxb-impl.jar HeartMonitorSessionViewer_lib/jaxb-xjc.jar HeartMonitorSessionViewer_lib/jaxb1-impl-src.zip HeartMonitorSessionViewer_lib/jaxb-api-doc.zip HeartMonitorSessionViewer_lib/jaxb-api-src.zip HeartMonitorSessionViewer_lib/jaxb-impl.src.zip HeartMonitorSessionViewer_lib/jaxb-xjc.src.zip HeartMonitorSessionViewer_lib/jcommon-1.0.16.jar HeartMonitorSessionViewer_lib/jfreechart-1.0.13.jar"/>
+                <attribute name="Main-Class" value="misc.SocketClient"/>
+                <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
-            <fileset dir="${dir.workspace}/net.kenevans.core.utils/bin"/>
-            <fileset dir="${dir.workspace}/net.kenevans.gpx/bin"/>
         </jar>
-        <delete dir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <mkdir dir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/activation.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb1-impl.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jsr173_1.0_api.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb1-impl-src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-doc.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-api-src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-impl.src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.workspace}/net.kenevans.jaxb/jaxb-xjc.src.zip" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.buildfile}/jcommon-1.0.16.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
-        <copy file="${dir.buildfile}/jfreechart-1.0.13.jar" todir="${dir.jarfile}/HeartMonitorSessionViewer_lib"/>
     </target>
 </project>
