@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,6 +40,8 @@ import javax.swing.UIManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.jfree.ui.RefineryUtilities;
+
 import net.kenevans.core.utils.AboutBoxPanel;
 import net.kenevans.core.utils.ImageUtils;
 import net.kenevans.core.utils.Utils;
@@ -46,8 +49,6 @@ import net.kenevans.heartmonitorsessionviewer.model.HMSVFileModel;
 import net.kenevans.heartmonitorsessionviewer.model.IConstants;
 import net.kenevans.heartmonitorsessionviewer.preferences.PreferencesDialog;
 import net.kenevans.heartmonitorsessionviewer.preferences.Settings;
-
-import org.jfree.ui.RefineryUtilities;
 
 /**
  * HMSViewer is a viewer to view ECG fileNames from the MD100A ECG Monitor.
@@ -268,6 +269,7 @@ public class HMSViewer extends JFrame implements IConstants
         infoTextArea = new JTextArea();
         infoTextArea.setEditable(false);
         infoTextArea.setColumns(40);
+        infoTextArea.setFont(new Font(Font.DIALOG, Font.PLAIN, 12));
         JScrollPane beatScrollPane = new JScrollPane(infoTextArea);
         infoPanel.add(beatScrollPane, BorderLayout.CENTER);
 
@@ -574,7 +576,7 @@ public class HMSViewer extends JFrame implements IConstants
     private void showInfo() {
         if(model != null) {
             String info = model.getInfo();
-            scrolledTextMsg(null, info, "File Info", 600, 400);
+            scrolledTextMsg(this, info, "File Info", 600, 400);
         }
     }
 
@@ -640,6 +642,7 @@ public class HMSViewer extends JFrame implements IConstants
         JTextArea textArea = new JTextArea(message);
         textArea.setEditable(false);
         textArea.setCaretPosition(0);
+        textArea.setFont(new Font(Font.DIALOG, Font.PLAIN, 12));
 
         JScrollPane scrollPane = new JScrollPane(textArea);
         jPanel.add(scrollPane, BorderLayout.CENTER);
