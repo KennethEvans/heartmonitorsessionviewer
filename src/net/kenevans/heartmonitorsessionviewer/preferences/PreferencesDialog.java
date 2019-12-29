@@ -1,7 +1,6 @@
 package net.kenevans.heartmonitorsessionviewer.preferences;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -14,6 +13,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -24,7 +24,7 @@ import net.kenevans.heartmonitorsessionviewer.ui.HMSViewer;
 
 /**
  * PreferencesDialog is a dialog to set the Preferences for HMSViewer. It only
- * returns after Cancel. It can save the values to the preference store or set
+ * returns after Done. It can save the values to the preference store or set
  * them in the viewer. In either case it remains visible.
  * 
  * @author Kenneth Evans, Jr.
@@ -74,8 +74,8 @@ public class PreferencesDialog extends JDialog implements IConstants
     /**
      * Constructor
      */
-    public PreferencesDialog(Component parent, HMSViewer viewer) {
-        super();
+    public PreferencesDialog(JFrame parent, HMSViewer viewer) {
+        super(parent);
         this.viewer = viewer;
         if(viewer == null) {
             Utils.errMsg("Viewer is null");
@@ -801,7 +801,7 @@ public class PreferencesDialog extends JDialog implements IConstants
         buttonPanel.add(button);
 
         button = new JButton();
-        button.setText("Cancel");
+        button.setText("Done");
         button.setToolTipText("Close the dialog and do nothing.");
         button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent ev) {
@@ -867,8 +867,8 @@ public class PreferencesDialog extends JDialog implements IConstants
             for(int i = 0; i < 6; i++) {
                 intensity = .1 * i + .5;
                 if(useKorvonen) {
-                    zoneVals[i] = (int)Math.round(intensity * (maxHr - restHr)
-                        + restHr);
+                    zoneVals[i] = (int)Math
+                        .round(intensity * (maxHr - restHr) + restHr);
                 } else {
                     zoneVals[i] = (int)Math.round(intensity * maxHr);
                 }
@@ -943,12 +943,12 @@ public class PreferencesDialog extends JDialog implements IConstants
         }
 
         if(hrRavCountText != null) {
-            hrRavCountText.setText(Integer.toString(settings
-                .getHrRollingAvgCount()));
+            hrRavCountText
+                .setText(Integer.toString(settings.getHrRollingAvgCount()));
         }
         if(rrRavCountText != null) {
-            rrRavCountText.setText(Integer.toString(settings
-                .getRrRollingAvgCount()));
+            rrRavCountText
+                .setText(Integer.toString(settings.getRrRollingAvgCount()));
         }
 
         if(zone1ValText != null) {
@@ -1023,10 +1023,10 @@ public class PreferencesDialog extends JDialog implements IConstants
             settings.setHrZonesVisible(hrZonesVisibileCheck.isSelected());
             settings.setRrVisible(rrVisibileCheck.isSelected());
 
-            settings.setHrRollingAvgCount(Integer.parseInt((hrRavCountText
-                .getText())));
-            settings.setRrRollingAvgCount(Integer.parseInt((rrRavCountText
-                .getText())));
+            settings.setHrRollingAvgCount(
+                Integer.parseInt((hrRavCountText.getText())));
+            settings.setRrRollingAvgCount(
+                Integer.parseInt((rrRavCountText.getText())));
 
             settings.setZone1Val(Integer.parseInt(zone1ValText.getText()));
             settings.setZone2Val(Integer.parseInt(zone2ValText.getText()));
@@ -1110,7 +1110,7 @@ public class PreferencesDialog extends JDialog implements IConstants
 
     /**
      * Shows the dialog and returns whether it was successful or not. However
-     * currently it is always successful and returns only on Cancel.
+     * currently it is always successful and returns only on Done.
      * 
      * @return
      */
