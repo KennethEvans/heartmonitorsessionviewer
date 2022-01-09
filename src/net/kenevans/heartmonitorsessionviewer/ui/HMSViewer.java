@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.prefs.Preferences;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
@@ -58,8 +60,10 @@ import net.kenevans.heartmonitorsessionviewer.preferences.Settings;
 public class HMSViewer extends JFrame implements IConstants
 {
     private static final String AUTHOR = "Written by Kenneth Evans, Jr.";
-    private static final String COPYRIGHT = "Copyright (c) 2012-2017 Kenneth Evans";
+    private static final String COPYRIGHT = "Copyright (c) 2012-2022 Kenneth Evans";
     private static final String COMPANY = "kenevans.net";
+
+    private static final Pattern fourDigitsPattern = Pattern.compile("\\d{4}");
 
     /**
      * Use this to determine if a file is loaded initially. Useful for
@@ -108,8 +112,7 @@ public class HMSViewer extends JFrame implements IConstants
         loadUserPreferences();
         plot = new HMSViewerPlot(this);
         uiInit();
-        findFileNames(settings.getDefaultDirectory(),
-            settings.getDefaultDirectory2());
+        findFileNames(settings.getDefaultDirectories());
     }
 
     /**
@@ -118,59 +121,30 @@ public class HMSViewer extends JFrame implements IConstants
      * @param dirName The directory in which to look for session files.
      * @param dirName2 The directory 2 in which to look for session files.
      */
-    void findFileNames(String dirName, String dirName2) {
-        File dir = new File(dirName);
-        if(!dir.exists()) {
-            Utils.errMsg("Does not exist: " + dirName);
-            return;
-        }
-        if(!dir.isDirectory()) {
-            Utils.errMsg("Not a directory: " + dirName);
-            return;
-        }
-        File[] files = dir.listFiles(new FileFilter() {
-            public boolean accept(File file) {
-                if(file.isDirectory()) {
-                    return false;
-                }
-                if(file.getName().startsWith("HxM-")
-                    || file.getName().startsWith("BCM-")
-                    || file.getName().startsWith("ECG-")) {
-                    String ext = Utils.getExtension(file);
-                    if(ext == null) {
-                        return false;
-                    }
-                    return ext.toLowerCase().equals("csv");
-                }
-                return false;
-            }
-        });
+    void findFileNames(String[] directories) {
         // Make an ArrayList
         ArrayList<File> sortedList = new ArrayList<File>();
-        for(File file : files) {
-            sortedList.add(file);
-        }
-
-        // Directory 2
-        File[] files2 = null;
-        if(dirName2 != null && dirName2.length() > 0) {
-            File dir2 = new File(dirName2);
-            if(!dir2.exists()) {
+        // Loop over the given directory names
+        for(String dirName : directories) {
+            File dir = new File(dirName);
+            if(!dir.exists()) {
                 Utils.errMsg("Does not exist: " + dirName);
                 return;
             }
-            if(!dir2.isDirectory()) {
+            if(!dir.isDirectory()) {
                 Utils.errMsg("Not a directory: " + dirName);
                 return;
             }
-            files2 = dir2.listFiles(new FileFilter() {
+            File[] files = dir.listFiles(new FileFilter() {
                 public boolean accept(File file) {
                     if(file.isDirectory()) {
                         return false;
                     }
                     if(file.getName().startsWith("HxM-")
                         || file.getName().startsWith("BCM-")
-                        || file.getName().startsWith("ECG-")) {
+                        || file.getName().startsWith("ECG-")
+                        || file.getName().startsWith("PolarECG-DeviceHR-")
+                        || file.getName().startsWith("PolarECG-QRSHR")) {
                         String ext = Utils.getExtension(file);
                         if(ext == null) {
                             return false;
@@ -180,39 +154,62 @@ public class HMSViewer extends JFrame implements IConstants
                     return false;
                 }
             });
-            for(File file : files2) {
+            for(File file : files) {
                 sortedList.add(file);
             }
-        }
 
-        // Sort in reverse order
-        Collections.sort(sortedList, new Comparator<File>() {
-            public int compare(File fa, File fb) {
-                if(fa.isDirectory() && !fb.isDirectory()) return -1;
-                if(fb.isDirectory() && !fa.isDirectory()) return 1;
-                // Name in reverse order
-                // return (fb.getName().compareTo(fa.getName()));
-                return (fb.getName().substring(4)
-                    .compareTo(fa.getName().substring(4)));
+            // Sort in reverse order
+            Collections.sort(sortedList, new Comparator<File>() {
+                public int compare(File fa, File fb) {
+                    if(fa.isDirectory() && !fb.isDirectory()) return -1;
+                    if(fb.isDirectory() && !fa.isDirectory()) return 1;
+                    // Name in reverse order
+                    return (getDateString(fb.getName())
+                        .compareTo(getDateString(fa.getName())));
+                }
+            });
+            // Re-populate the array
+            files = sortedList.toArray(files);
+
+            // Make the list of file names
+            int nFiles = files.length;
+            fileNames = new String[nFiles];
+            if(nFiles <= 0) {
+                curFileName = null;
+            } else {
+                for(int i = 0; i < nFiles; i++) {
+                    fileNames[i] = files[i].getPath();
+                }
+                curFileName = fileNames[0];
             }
-        });
-        // Re-populate the array
-        files = sortedList.toArray(files);
 
-        // Make the list of file names
-        int nFiles = files.length;
-        fileNames = new String[nFiles];
-        if(nFiles <= 0) {
-            curFileName = null;
-        } else {
-            for(int i = 0; i < nFiles; i++) {
-                fileNames[i] = files[i].getPath();
-            }
-            curFileName = fileNames[0];
+            // Fill in the ListModel
+            populateList();
         }
+    }
 
-        // Fill in the ListModel
-        populateList();
+    /**
+     * Finds the date string in a file name, then the substring starting at the
+     * date string.
+     * 
+     * @param fileName The file name to parse.
+     * @return The substring or "".
+     */
+    public String getDateString(String fileName) {
+        Matcher matcher = fourDigitsPattern.matcher(fileName);
+        String group;
+        int index = -1;
+        // Find first occurrence
+        if(matcher.find()) {
+            group = matcher.group();
+            index = fileName.indexOf(group);
+            if(index > -1) {
+                return fileName.substring(index);
+            } else {
+                return "";
+            }
+        }
+        return "";
     }
 
     /**
@@ -482,17 +479,15 @@ public class HMSViewer extends JFrame implements IConstants
             settings.setDefaultDirectory(dirName);
             // Don't use a second directory
             settings.setDefaultDirectory2("");
-            findFileNames(settings.getDefaultDirectory(),
-                settings.getDefaultDirectory2());
+            findFileNames(settings.getDefaultDirectories());
         }
     }
 
     /**
-     * Refreshes the loaded directory.
+     * Refreshes the loaded directories.
      */
     private void refresh() {
-        findFileNames(settings.getDefaultDirectory(),
-            settings.getDefaultDirectory2());
+        findFileNames(settings.getDefaultDirectories());
     }
 
     /**
@@ -623,8 +618,7 @@ public class HMSViewer extends JFrame implements IConstants
         if(!this.settings.getDefaultDirectory().equals(defaultDirectoryOld)
             || !this.settings.getDefaultDirectory2()
                 .equals(defaultDirectory2Old)) {
-            findFileNames(settings.getDefaultDirectory(),
-                settings.getDefaultDirectory2());
+            findFileNames(settings.getDefaultDirectories());
         }
     }
 

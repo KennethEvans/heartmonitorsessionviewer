@@ -21,6 +21,7 @@ public class Settings implements IConstants
 {
     private String defaultDirectory = D_DEFAULT_DIR;
     private String defaultDirectory2 = D_DEFAULT_DIR2;
+    private String defaultDirectory3 = D_DEFAULT_DIR3;
 
     private boolean hrVisible = D_HR_VISIBILITY;
     private boolean hrZonesVisible = D_HR_ZONES_VISIBILITY;
@@ -55,6 +56,7 @@ public class Settings implements IConstants
         Preferences prefs = HMSViewer.getUserPreferences();
         defaultDirectory = prefs.get(P_DEFAULT_DIR, D_DEFAULT_DIR);
         defaultDirectory2 = prefs.get(P_DEFAULT_DIR2, D_DEFAULT_DIR2);
+        defaultDirectory3 = prefs.get(P_DEFAULT_DIR3, D_DEFAULT_DIR3);
 
         hrVisible = prefs.getBoolean(P_HR_VISIBILITY, D_HR_VISIBILITY);
         hrZonesVisible = prefs.getBoolean(P_HR_ZONES_VISIBILITY,
@@ -102,6 +104,7 @@ public class Settings implements IConstants
 
             prefs.put(P_DEFAULT_DIR, defaultDirectory);
             prefs.put(P_DEFAULT_DIR2, defaultDirectory2);
+            prefs.put(P_DEFAULT_DIR3, defaultDirectory3);
 
             prefs.putBoolean(P_HR_VISIBILITY, hrVisible);
             prefs.putBoolean(P_HR_ZONES_VISIBILITY, hrZonesVisible);
@@ -168,8 +171,8 @@ public class Settings implements IConstants
                 } else {
                     if(!file.isDirectory()) {
                         if(showErrors) {
-                            Utils
-                                .errMsg("The default directory is not a directory");
+                            Utils.errMsg(
+                                "The default directory is not a directory");
                         }
                         retVal = false;
                     }
@@ -199,8 +202,39 @@ public class Settings implements IConstants
                 } else {
                     if(!file.isDirectory()) {
                         if(showErrors) {
-                            Utils
-                                .errMsg("The default directory 2 is not a directory");
+                            Utils.errMsg(
+                                "The default directory 2 is not a directory");
+                        }
+                        retVal = false;
+                    }
+                }
+            }
+        }
+
+        // Default directory 3
+        if(defaultDirectory3 == null) {
+            if(showErrors) {
+                Utils.errMsg("Value for the default directory 3 is null");
+            }
+            retVal = false;
+        } else if(defaultDirectory3.length() > 0) {
+            File file = new File(defaultDirectory3);
+            if(file == null) {
+                if(showErrors) {
+                    Utils.errMsg("The default directory 3 is invalid");
+                }
+                retVal = false;
+            } else {
+                if(!file.exists()) {
+                    if(showErrors) {
+                        Utils.errMsg("The default directory 3 does not exist");
+                    }
+                    retVal = false;
+                } else {
+                    if(!file.isDirectory()) {
+                        if(showErrors) {
+                            Utils.errMsg(
+                                "The default directory 3 is not a directory");
                         }
                         retVal = false;
                     }
@@ -219,6 +253,7 @@ public class Settings implements IConstants
     public void copyFrom(Settings settings) {
         this.defaultDirectory = settings.defaultDirectory;
         this.defaultDirectory2 = settings.defaultDirectory2;
+        this.defaultDirectory3 = settings.defaultDirectory3;
 
         this.hrVisible = settings.hrVisible;
         this.hrZonesVisible = settings.hrZonesVisible;
@@ -257,8 +292,8 @@ public class Settings implements IConstants
     /**
      * @param defaultDirectory The new value for defaultDirectory.
      */
-    public void setDefaultDirectory(String defaultDirectory2) {
-        this.defaultDirectory = defaultDirectory2;
+    public void setDefaultDirectory(String defaultDirectory) {
+        this.defaultDirectory = defaultDirectory;
     }
 
     /**
@@ -273,6 +308,28 @@ public class Settings implements IConstants
      */
     public void setDefaultDirectory2(String defaultDirectory2) {
         this.defaultDirectory2 = defaultDirectory2;
+    }
+
+    /**
+     * @return The value of defaultDirectory3.
+     */
+    public String getDefaultDirectory3() {
+        return defaultDirectory3;
+    }
+
+    /**
+     * @param defaultDirectory3 The new value for defaultDirectory.
+     */
+    public void setDefaultDirectory3(String defaultDirectory3) {
+        this.defaultDirectory3 = defaultDirectory3;
+    }
+
+    /**
+     * @return An array of all the directories
+     */
+    public String[] getDefaultDirectories() {
+        return new String[] {defaultDirectory, defaultDirectory2,
+            defaultDirectory3};
     }
 
     /**

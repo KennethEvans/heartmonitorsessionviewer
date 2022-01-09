@@ -33,7 +33,7 @@ public interface IConstants
     /** The title for the viewer. */
     public static final String TITLE = "Heart Monitor Session Viewer";
     /** The version */
-    public static final String VERSION = "1.1.1.0";
+    public static final String VERSION = "1.2.0.0";
     /** The title for the plot. */
     public static final String PLOT_TITLE = "Heart Monitor Data";
     /** The frame width for the viewer. */
@@ -73,6 +73,10 @@ public interface IConstants
     public static final String P_DEFAULT_DIR2 = "defaultDir2";
     /*** The default value for the default directory 2 for finding session files. */
     public static final String D_DEFAULT_DIR2 = "C:/Scratch/ECG/Android/SM-G930V/Current/HxM Monitor";
+    /*** The preference name for the default directory 3 for finding session files. */
+    public static final String P_DEFAULT_DIR3 = "defaultDir3";
+    /*** The default value for the default directory 3 for finding session files. */
+    public static final String D_DEFAULT_DIR3 = "C:/Scratch/ECG/Polar ECG/CSV";
 
     /** The number of data types. */
     public static int N_DATA_TYPES = 1;

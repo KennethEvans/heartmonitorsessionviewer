@@ -46,6 +46,7 @@ public class PreferencesDialog extends JDialog implements IConstants
 
     JTextField defaultDirText;
     JTextField defaultDir2Text;
+    JTextField defaultDir3Text;
     JCheckBox hrVisibileCheck;
     JCheckBox hrZonesVisibileCheck;
     JCheckBox rrVisibileCheck;
@@ -201,6 +202,50 @@ public class PreferencesDialog extends JDialog implements IConstants
                 String initialDirName = defaultDir2Text.getText();
                 String dirName = browse(initialDirName);
                 defaultDir2Text.setText(dirName);
+            }
+        });
+        gbc = (GridBagConstraints)gbcDefault.clone();
+        gbc.gridx = 1;
+        filePanel.add(button);
+
+        // Default directory 3
+        gridy++;
+        label = new JLabel("Default Directory 3:");
+        label.setToolTipText("The default directory 3.  May be blank.");
+        gbc = (GridBagConstraints)gbcDefault.clone();
+        gbc.gridx = 0;
+        gbc.gridy = gridy;
+        fileGroup.add(label, gbc);
+
+        // File JPanel holds the filename and browse button
+        filePanel = new JPanel();
+        filePanel.setLayout(new GridBagLayout());
+        gbc = (GridBagConstraints)gbcDefault.clone();
+        gbc.gridx = 1;
+        gbc.gridy = gridy;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 100;
+        fileGroup.add(filePanel, gbc);
+
+        defaultDir3Text = new JTextField(DIR_COLS);
+        defaultDir3Text.setToolTipText(label.getToolTipText());
+        gbc = (GridBagConstraints)gbcDefault.clone();
+        gbc.gridx = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 100;
+        filePanel.add(defaultDir3Text, gbc);
+
+        button = new JButton();
+        button.setText("Browse");
+        button.setToolTipText("Choose the file.");
+        button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent ev) {
+                if(defaultDir3Text == null) {
+                    return;
+                }
+                String initialDirName = defaultDir3Text.getText();
+                String dirName = browse(initialDirName);
+                defaultDir3Text.setText(dirName);
             }
         });
         gbc = (GridBagConstraints)gbcDefault.clone();
@@ -931,6 +976,9 @@ public class PreferencesDialog extends JDialog implements IConstants
         if(defaultDir2Text != null) {
             defaultDir2Text.setText(settings.getDefaultDirectory2());
         }
+        if(defaultDir3Text != null) {
+            defaultDir3Text.setText(settings.getDefaultDirectory3());
+        }
 
         if(hrVisibileCheck != null) {
             hrVisibileCheck.setSelected(settings.getHrVisible());
@@ -1018,6 +1066,7 @@ public class PreferencesDialog extends JDialog implements IConstants
         try {
             settings.setDefaultDirectory(defaultDirText.getText());
             settings.setDefaultDirectory2(defaultDir2Text.getText());
+            settings.setDefaultDirectory3(defaultDir3Text.getText());
 
             settings.setHrVisible(hrVisibileCheck.isSelected());
             settings.setHrZonesVisible(hrZonesVisibileCheck.isSelected());
